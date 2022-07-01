@@ -14,9 +14,11 @@ def get_driver():
 
 def get_restaurant(driver):
   driver.get(grab_url)
-  restaurant_div_class ='asList___1ZNTr' 
+  restaurant_div_class ='name___2epcT' 
   restaurant = driver.find_elements(By.CLASS_NAME,restaurant_div_class)
   return restaurant
+
+# def parse_restaurant  
 
 if __name__ == "__main__":
   print("creating driver")
@@ -25,13 +27,16 @@ if __name__ == "__main__":
  
   restaurants = get_restaurant(driver)
   print('Found restaurants ',len(restaurants))
+  rest = restaurants[0]
+  rest_title = rest.text
+  print(rest_title)
 
-  print('Parsing the first div')
-  # Now in restaurants we have a list of 
-  # restaurants which includes all the info but we
-  # might only want title which could help us later
-  restaurant_title_div_class ='name___2epcT' 
-  restaurants_title = driver.find_elements(By.CLASS_NAME,restaurant_title_div_class)
-  restaurant_title_tag= restaurants_title[0]
-  restaurant_title = restaurant_title_tag.text
-  print(restaurant_title)
+  # print('Parsing the first div')
+  # # Now in restaurants we have a list of 
+  # # restaurants which includes all the info but we
+  # # might only want title which could help us later
+  # restaurant_title_div_class ='name___2epcT' 
+  # restaurants_title = driver.find_elements(By.CLASS_NAME,restaurant_title_div_class)
+  # restaurant_title_tag= restaurants_title[0]
+  # restaurant_title = restaurant_title_tag.text
+  # print(restaurant_title)
