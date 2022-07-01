@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 
 grab_url='https://food.grab.com/sg/en/restaurants'
 
@@ -17,5 +18,9 @@ if __name__ == "__main__":
 
   print('fetching the page')
   driver.get(grab_url)
+  print('Page title',driver.title)
   
-  print('page title', driver.title)
+  print('get title divs')
+  title_div_class ='name___2epcT' 
+  title_divs = driver.find_elements(By.CLASS_NAME,title_div_class)
+  print('Found  titles',len(title_divs))
