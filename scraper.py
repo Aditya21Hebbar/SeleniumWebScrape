@@ -27,3 +27,11 @@ if __name__ == "__main__":
   print('Found restaurants ',len(restaurants))
 
   print('Parsing the first div')
+  # Now in restaurants we have a list of 
+  # restaurants which includes all the info but we
+  # might only want title which could help us later
+  restaurant_title_div_class ='name___2epcT' 
+  restaurants_title = driver.find_elements(By.CLASS_NAME,restaurant_title_div_class)
+  restaurant_title_tag= restaurants_title[0]
+  restaurant_title = restaurant_title_tag.text
+  print(restaurant_title)
