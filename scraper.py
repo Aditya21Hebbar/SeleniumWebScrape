@@ -23,7 +23,7 @@ if __name__ == "__main__":
   driver = get_driver()
   print('fetching the top list restaurants')
  
-  title_divs = get_restaurant(driver)
-  print('Found restaurants ',len(title_divs))
+  restaurants = get_restaurant(driver)
+  print('Found restaurants ',len(restaurants))
 
   print('Parsing the first div')
