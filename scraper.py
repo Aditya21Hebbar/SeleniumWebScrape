@@ -12,15 +12,18 @@ def get_driver():
   driver = webdriver.Chrome(options=chrome_options)
   return driver
 
+def get_titles(driver):
+  driver.get(grab_url)
+  title_div_class ='name___2epcT' 
+  title = driver.find_elements(By.CLASS_NAME,title_div_class)
+  return title
+
 if __name__ == "__main__":
   print("creating driver")
   driver = get_driver()
+  print('fetching the top list restaurants')
+ 
+  title_divs = get_titles(driver)
+  print('Found titles number',len(title_divs))
 
-  print('fetching the page')
-  driver.get(grab_url)
-  print('Page title',driver.title)
-  
-  print('get title divs')
-  title_div_class ='name___2epcT' 
-  title_divs = driver.find_elements(By.CLASS_NAME,title_div_class)
-  print('Found  titles',len(title_divs))
+  print('Parsing the first div')
